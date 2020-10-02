@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageViewHome"
+        android:layout_width="500dp"
+        android:layout_height="200dp"
+        android:src="@drawable/home1" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="198dp">
+
+        <Button
+            android:id="@+id/btnProducts"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="30dp"
+            android:text="Products"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#F8BBD0"/>
+
+        <Button
+            android:id="@+id/btnAccountsettings"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="30dp"
+            android:text="Account \nSettings"
+            app:layout_constraintStart_toEndOf="@+id/btnProducts"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#DCEDC8"/>
+
+        <Button
+            android:id="@+id/btnOrders"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="Orders"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnProducts"
+            android:background="#B2EBF2"/>
+
+        <Button
+            android:id="@+id/btnCart"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:text="Cart"
+            android:onClick="onClick"
+            app:layout_constraintStart_toEndOf="@+id/btnOrders"
+            app:layout_constraintTop_toBottomOf="@+id/btnProducts"
+            android:background="#E1BEE7"/>
+
+        <Button
+            android:id="@+id/btnFeedback"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="Feedback"
+            android:onClick="onClick"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnOrders"
+            android:background="#FFCDD2"/>
+
+        <Button
+            android:id="@+id/btnAboutUs"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:text="About Us"
+            app:layout_constraintStart_toEndOf="@+id/btnFeedback"
+            app:layout_constraintTop_toBottomOf="@+id/btnCart"
+            android:background="#FFCCBC"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>
