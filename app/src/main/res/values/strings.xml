@@ -1,3 +1,58 @@
 <resources>
     <string name="app_name">Finery</string>
+
+    <string name="customer_view_title">CLOTHES that fits \nyour STYLE...</string>
+    <string name="product_price">$123</string>
+    <string name="product_title">Pink Frock</string>
+    <string name="product_for_more">For More...</string>
+    <string name="offer_text">0%</string>
+    <string name="price_text">$123</string>
+    <string name="product_name">Pink Frock</string>
+    <string name="homepage_product">Products</string>
+    <string name="product_image_customerView">Product Image</string>
+    <string name="product_title_more">Product Title</string>
+    <string name="price_120">$120</string>
+    <string name="product_description">This the description of product. Make it long to display perfectly.</string>
+    <string name="offer_price">Offer price</string>
+    <string name="available_size">Available size:</string>
+    <string name="sizes">S | M | L</string>
+    <string name="colors">Green | Yellow | White</string>
+    <string name="add_to_cart_btn">Add To cart</string>
+    <string name="title_activity_product_admin">ProductAdmin</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="product_admin">Product Admin</string>
+    <string name="product_image_more_details">Product Image</string>
+    <string name="product_title_mor_details">Product Title</string>
+    <string name="price">$120</string>
+    <string name="available_color">Available color:</string>
+    <string name="add_to_cart">Add To cart</string>
+    <string name="product_image">Product Image</string>
+    <string name="offer">0%</string>
+    <string name="add_new_product">Add New Product</string>
+    <string name="enter_product_id">Enter Product ID:</string>
+    <string name="enter_product_title">Enter Product Title:</string>
+    <string name="enter_product_description">Enter Product Description:</string>
+    <string name="enter_product_price">Enter Product Price:</string>
+    <string name="enter_product_available_sizes">Enter Product Available Sizes:</string>
+    <string name="enter_product_available_color">Enter Product Available color:</string>
+    <string name="enter_the_uri_of_product_image">Enter the Uri of Product Image:</string>
+    <string name="enter_offer">Enter offer:</string>
+    <string name="save">Save</string>
+    <string name="clear">Clear</string>
+    <string name="frock">Frock</string>
+    <string name="product_size">S | M | L</string>
+    <string name="product_color">Green | Yellow | White</string>
+    <string name="product_offer">50%</string>
+    <string name="dollor">$</string>
+    <string name="update">Update</string>
+    <string name="delete_imagebutton">Delete ImageButton</string>
+
+
 </resources>

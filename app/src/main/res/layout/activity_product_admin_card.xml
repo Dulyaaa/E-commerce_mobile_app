@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="1dp"
+        app:cardMaxElevation="1dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        android:outlineAmbientShadowColor="#070101">
+
+        <RelativeLayout
+            android:background="#AE8361"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/adminpimage"
+                android:layout_width="155dp"
+                android:layout_height="200dp"
+                android:padding="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginBottom="1dp"/>
+
+            <TextView
+                android:id="@+id/adminpID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/adminpTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_toEndOf="@id/adminpimage"
+                android:text="@string/product_title"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/adminpDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:layout_below="@id/adminpTitle"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/adminpimage"
+                android:text="@string/product_description"/>
+
+            <TextView
+                android:id="@+id/adminpSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/adminpDescription"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/adminpimage"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/product_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/adminpOffer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/adminpDescription"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/adminpimage"
+                android:background="#7B1FA2"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/product_offer"
+                android:textStyle="bold"
+                android:textColor="#fff"/>
+
+            <TextView
+                android:id="@+id/adminpColors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/adminpSize"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/adminpimage"
+                android:background="#fff"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_marginStart="30dp"
+                android:text="@string/product_color"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/adminpPriceCurrency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/adminpColors"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/adminpimage"
+                android:text="@string/dollor"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/adminpPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/adminpColors"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/adminpimage"
+                android:text="@string/product_price"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/adminpUpdate"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_below="@id/adminpPrice"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/adminpimage"
+                android:text="@string/update"
+                android:textSize="13sp"
+                android:background="#00B8D4"
+                tools:ignore="SmallSp" />
+
+            <ImageButton
+                android:id="@+id/adminpDelete"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_below="@id/adminpPrice"
+                android:layout_marginStart="185dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/adminpimage"
+                app:srcCompat="@android:drawable/ic_menu_delete"
+                android:background="#FF1744"
+                android:tint="@android:color/white"
+                android:contentDescription="@string/delete_imagebutton" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

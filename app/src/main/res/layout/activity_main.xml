@@ -27,10 +27,11 @@
             android:layout_height="80dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="30dp"
+            android:background="#F8BBD0"
+            android:onClick="onClick"
             android:text="Products"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="#F8BBD0"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnAccountsettings"

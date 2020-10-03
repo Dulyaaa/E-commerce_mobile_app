@@ -19,6 +19,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".AddNewProduct"></activity>
+        <activity
+            android:name=".ProductAdmin"
+            android:label="@string/title_activity_product_admin"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ProductCustomerMoreDetails" />
+        <activity android:name=".ProductCustomerView" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>
