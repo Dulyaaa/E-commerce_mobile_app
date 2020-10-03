@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnCart,btnFeedback, btnProducts;
+    private Button btnCart,btnFeedback, btnProducts, btnOrders;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         btnCart = (Button)findViewById(R.id.btnCart);
         btnFeedback =(Button)findViewById(R.id.btnFeedback);
         btnProducts =(Button)findViewById(R.id.btnProducts);
+        btnOrders =(Button)findViewById(R.id.btnOrders);
     }
 
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnCart : i=new Intent(this,CartActivity.class);startActivity(i);break;
             case R.id.btnFeedback : i=new Intent(this,Feedback.class);startActivity(i);break;
             case R.id.btnProducts : i=new Intent(this,ProductCustomerView.class);startActivity(i);break;
+            case R.id.btnOrders : i=new Intent(this,GiveRates.class);startActivity(i);break;
 
 
             default:break;

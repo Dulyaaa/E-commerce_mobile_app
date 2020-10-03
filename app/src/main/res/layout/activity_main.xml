@@ -51,10 +51,11 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="24dp"
             android:layout_marginTop="20dp"
+            android:background="#B2EBF2"
+            android:onClick="onClick"
             android:text="Orders"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnProducts"
-            android:background="#B2EBF2"/>
+            app:layout_constraintTop_toBottomOf="@+id/btnProducts" />
 
         <Button
             android:id="@+id/btnCart"

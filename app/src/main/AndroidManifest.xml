@@ -28,6 +28,8 @@
         <activity android:name=".ProductCustomerMoreDetails" />
         <activity android:name=".ProductCustomerView" />
 
+        <activity android:name=".GiveRates" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
