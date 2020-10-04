@@ -21,40 +21,66 @@
         android:id="@+id/editTextFname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/input_design"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:ems="10"
         android:hint="First Name:"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editTextLname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/input_design"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:ems="10"
         android:hint="Last Name:"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editTextCity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/input_design"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:ems="10"
         android:hint="City:"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editTextAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/input_design"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:ems="10"
         android:hint="Address:"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editTextConNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/input_design"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:ems="10"
         android:hint="Contact Number:"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textPersonName" />
 
     <Space
@@ -76,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#6676CF"
+                android:background="@drawable/mybutton"
                 android:text="Add" />
 
             <Button
@@ -84,7 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#BA65C8"
+                android:background="@drawable/mybutton"
                 android:text="Show" />
 
 
