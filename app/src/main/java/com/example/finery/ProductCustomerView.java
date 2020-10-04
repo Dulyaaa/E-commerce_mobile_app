@@ -3,18 +3,6 @@ package com.example.finery;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -25,6 +13,19 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class ProductCustomerView extends AppCompatActivity {
 
@@ -37,13 +38,11 @@ public class ProductCustomerView extends AppCompatActivity {
     public static final String pprice = "Product Price";
     public static final String poffer = "Product Offer";
 
-    Button btnMore;
     RecyclerView recyclerView;
     Query query1;
     private DatabaseReference mdatabasereference;
     private ProgressDialog progressDialog;
     FirebaseRecyclerAdapter<Product, BlogViewHolder> firebaseRecyclerAdapter;
-    LinearLayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +55,7 @@ public class ProductCustomerView extends AppCompatActivity {
         progressDialog.setMessage("Loading Products Please Wait...");
         progressDialog.show();
 
-        mdatabasereference = FirebaseDatabase.getInstance().getReference("products").child("women");
+        mdatabasereference = FirebaseDatabase.getInstance().getReference("products").child("accessories");
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewGridView);
     }
@@ -91,25 +90,31 @@ public class ProductCustomerView extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                                String id = dataSnapshot.child("id").getValue(String.class);
-                                String title = dataSnapshot.child("title").getValue(String.class);
-                                String description = dataSnapshot.child("description").getValue(String.class);
-                                String size = dataSnapshot.child("size").getValue(String.class);
-                                String color = dataSnapshot.child("color").getValue(String.class);
-                                String image = dataSnapshot.child("image").getValue(String.class);
-                                String price = dataSnapshot.child("price").getValue(Integer.class).toString();
-                                String offer = dataSnapshot.child("offer").getValue(Integer.class).toString();
+                                if(dataSnapshot.hasChildren()) {
 
-                                Intent intent = new Intent(ProductCustomerView.this, ProductCustomerMoreDetails.class);
-                                intent.putExtra(pid, id);
-                                intent.putExtra(ptitle, title);
-                                intent.putExtra(pdescription, description);
-                                intent.putExtra(psize, size);
-                                intent.putExtra(pcolor, color);
-                                intent.putExtra(pimage, image);
-                                intent.putExtra(pprice, price);
-                                intent.putExtra(poffer, offer);
-                                startActivity(intent);
+                                    String id = dataSnapshot.child("id").getValue(String.class);
+                                    String title = dataSnapshot.child("title").getValue(String.class);
+                                    String description = dataSnapshot.child("description").getValue(String.class);
+                                    String size = dataSnapshot.child("size").getValue(String.class);
+                                    String color = dataSnapshot.child("color").getValue(String.class);
+                                    String image = dataSnapshot.child("image").getValue(String.class);
+                                    String price = dataSnapshot.child("price").getValue(Integer.class).toString();
+                                    String offer = dataSnapshot.child("offer").getValue(Integer.class).toString();
+
+                                    Intent intent = new Intent(ProductCustomerView.this, ProductCustomerMoreDetails.class);
+                                    intent.putExtra(pid, id);
+                                    intent.putExtra(ptitle, title);
+                                    intent.putExtra(pdescription, description);
+                                    intent.putExtra(psize, size);
+                                    intent.putExtra(pcolor, color);
+                                    intent.putExtra(pimage, image);
+                                    intent.putExtra(pprice, price);
+                                    intent.putExtra(poffer, offer);
+                                    startActivity(intent);
+
+                                }
+                                else
+                                    Toast.makeText(getApplicationContext(), "No data to display.", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
@@ -120,23 +125,23 @@ public class ProductCustomerView extends AppCompatActivity {
                 });
 
 
-                blogViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        final String productid = getRef(i).getKey();
-
-                        mdatabasereference.child(productid).addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-                            }
-                        });
-                    }
-                });
+//                blogViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        final String productid = getRef(i).getKey();
+//
+//                        mdatabasereference.child(productid).addValueEventListener(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                            }
+//                        });
+//                    }
+//                });
 
             }
 
