@@ -36,6 +36,7 @@ import android.widget.Toast;
 
 public class ProductAdmin extends AppCompatActivity {
 
+    //Object Declarations
     RecyclerView recyclerView;
     TextView txtID;
     Query query1;
@@ -49,18 +50,20 @@ public class ProductAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_admin);
 
+        //Progress Dialog
         progressDialog = new ProgressDialog(ProductAdmin.this);
         progressDialog.setMessage("Loading Products Please Wait...");
         progressDialog.show();
 
+        //Connect with Database
         mdatabasereference = FirebaseDatabase.getInstance().getReference("products").child("accessories");
 
         recyclerView = (RecyclerView) findViewById(R.id.adminRecyclerViewGridView);
-
         txtID = (TextView) findViewById(R.id.adminpID);
 
         product = new Product();
 
+        //Button for add new product
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,12 +79,14 @@ public class ProductAdmin extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        //Connect with database
         query1 = FirebaseDatabase.getInstance().getReference().child("products").child("accessories");
         FirebaseRecyclerOptions<Product> options =
                 new FirebaseRecyclerOptions.Builder<Product>()
                         .setQuery(query1, Product.class)
                         .build();
 
+        //Display the data in recycleview
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, final int i, @NonNull Product product_get_set_v) {
@@ -112,6 +117,7 @@ public class ProductAdmin extends AppCompatActivity {
                     }
                 });
 
+                //Update the product details
                 productViewHolder.btnUpdate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
