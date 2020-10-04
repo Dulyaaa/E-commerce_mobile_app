@@ -53,6 +53,7 @@
     <string name="dollor">$</string>
     <string name="update">Update</string>
     <string name="delete_imagebutton">Delete ImageButton</string>
+    <string name="apply_changes">Apply changes</string>
 
 
 </resources>
