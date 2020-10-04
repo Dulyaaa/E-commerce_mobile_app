@@ -1,4 +1,4 @@
-package com.example.finery;
+package com.example.finery.Model;
 
 public class Cart {
     private String pid,pname,price, quantity;

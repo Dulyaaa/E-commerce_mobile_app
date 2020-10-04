@@ -77,6 +77,9 @@
         <Button
             android:id="@+id/updateBtn"
             android:text="@string/apply_changes"
+            android:background="#F57F17"
+            android:textSize="15sp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
