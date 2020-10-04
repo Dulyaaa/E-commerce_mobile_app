@@ -65,7 +65,7 @@ public class Feedback extends AppCompatActivity {
                         fed.setDescription(editTextDes.getText().toString().trim());
                         fed.setContact( Integer.parseInt(editTextContact.getText().toString().trim()));
 
-                        dbRef.child("feed4").setValue(fed);
+                        dbRef.child("feed6").setValue(fed);
 
                         Toast.makeText(getApplicationContext(),"Successfully Added Your Feedback",Toast.LENGTH_LONG).show();
                         clearControls();
@@ -81,7 +81,7 @@ public class Feedback extends AppCompatActivity {
         buttonSH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                readref = FirebaseDatabase.getInstance().getReference().child("Feed").child("feed4");
+                readref = FirebaseDatabase.getInstance().getReference().child("Feed").child("feed6");
                 readref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -110,14 +110,14 @@ public class Feedback extends AppCompatActivity {
                 upRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChild("feed4")){
+                        if (dataSnapshot.hasChild("feed6")){
                             try {
                                 fed.setName(editTextName.getText().toString().trim());
                                 fed.setContact(Integer.parseInt(editTextContact.getText().toString().trim()));
                                 fed.setProname(editTextPname.getText().toString().trim());
                                 fed.setDescription(editTextDes.getText().toString().trim());
 
-                                dbRef = FirebaseDatabase.getInstance().getReference().child("Feed").child("feed4");
+                                dbRef = FirebaseDatabase.getInstance().getReference().child("Feed").child("feed6");
                                 dbRef.setValue(fed);
                                 clearControls();
 
@@ -145,8 +145,8 @@ public class Feedback extends AppCompatActivity {
                 delRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChild("feed4")){
-                            dbRef = FirebaseDatabase.getInstance().getReference().child("Feed").child("feed4");
+                        if (dataSnapshot.hasChild("feed6")){
+                            dbRef = FirebaseDatabase.getInstance().getReference().child("Feed").child("feed6");
                             dbRef.removeValue();
                             clearControls();
                             Toast.makeText(getApplicationContext(),"Deleted Successfully",Toast.LENGTH_SHORT).show();
