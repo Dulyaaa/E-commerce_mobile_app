@@ -24,6 +24,7 @@ import static com.example.finery.ProductCustomerView.ptitle;
 
 public class ProductCustomerMoreDetails extends AppCompatActivity {
 
+    //Declaring objects
     TextView txtTitle, txtDescription, txtSize, txtColor, txtPrice;
     ImageView pimage;
     Button btnAddToCart;
