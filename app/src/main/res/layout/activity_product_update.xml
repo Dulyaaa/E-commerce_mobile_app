@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Product ID"
+        android:hint="@string/enter_product_id"
         android:inputType="textPersonName" />
 
     <EditText
@@ -19,14 +19,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Product Title" />
+        android:hint="@string/enter_product_title" />
 
     <EditText
         android:id="@+id/uProductDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Description"
+        android:hint="@string/enter_product_description"
         android:inputType="textLongMessage|text" />
 
     <EditText
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:autofillHints="Product Size"
-        android:hint="Enter Size" />
+        android:hint="@string/enter_product_available_sizes" />
 
     <EditText
         android:id="@+id/uProductColor"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:autofillHints="Product Color"
-        android:hint="Enter Colour" />
+        android:hint="@string/enter_product_available_color" />
 
     <EditText
         android:id="@+id/uProductPrice"
@@ -51,14 +51,14 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:autofillHints="Product Price"
-        android:hint="Enter Price" />
+        android:hint="@string/enter_product_price" />
 
     <EditText
         android:id="@+id/uProductOffer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Offer"
+        android:hint="@string/enter_offer"
         android:inputType="textPersonName" />
 
     <EditText
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:autofillHints="Product Offer"
-        android:hint="Enter Image URL" />
+        android:hint="@string/enter_the_uri_of_product_image" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -76,7 +76,7 @@
 
         <Button
             android:id="@+id/updateBtn"
-            android:text="Apply changes"
+            android:text="@string/apply_changes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 

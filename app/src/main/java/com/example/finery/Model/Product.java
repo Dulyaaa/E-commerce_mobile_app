@@ -1,4 +1,4 @@
-package com.example.finery;
+package com.example.finery.Model;
 
 //Model of the Product
 public class Product {

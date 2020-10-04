@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.finery.Model.Product;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -20,9 +21,7 @@ import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
-//import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -37,6 +36,7 @@ import android.widget.Toast;
 
 public class ProductAdmin extends AppCompatActivity {
 
+    //Object Declarations
     RecyclerView recyclerView;
     TextView txtID;
     Query query1;
@@ -44,62 +44,32 @@ public class ProductAdmin extends AppCompatActivity {
     Product product;
     private ProgressDialog progressDialog;
     FirebaseRecyclerAdapter<Product, ProductViewHolder> firebaseRecyclerAdapter;
-    //LinearLayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
         setContentView(R.layout.activity_product_admin);
-        //getSupportActionBar().hide();
 
+        //Progress Dialog
         progressDialog = new ProgressDialog(ProductAdmin.this);
         progressDialog.setMessage("Loading Products Please Wait...");
         progressDialog.show();
 
+        //Connect with Database
         mdatabasereference = FirebaseDatabase.getInstance().getReference("products").child("accessories");
 
         recyclerView = (RecyclerView) findViewById(R.id.adminRecyclerViewGridView);
-
         txtID = (TextView) findViewById(R.id.adminpID);
 
         product = new Product();
 
-        //String pID = txtID.getText().toString();
-
-//        btnDelete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                DatabaseReference delRef = FirebaseDatabase.getInstance().getReference().child("products").child("accessories");
-//                delRef.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                        if(dataSnapshot.hasChild(txtID.getText().toString())){
-//                            mdatabasereference = FirebaseDatabase.getInstance().getReference().child("products").child("accessories").child(txtID.getText().toString());
-//                            mdatabasereference.removeValue();
-//
-//                            Toast.makeText(getApplicationContext(), "Deleted Successfully!!", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                    }
-//                });
-//            }
-//        });
-
+        //Button for add new product
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProductAdmin.this, AddNewProduct.class);
                 startActivity(intent);
-
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
             }
         });
 
@@ -109,19 +79,18 @@ public class ProductAdmin extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        //Connect with database
         query1 = FirebaseDatabase.getInstance().getReference().child("products").child("accessories");
         FirebaseRecyclerOptions<Product> options =
                 new FirebaseRecyclerOptions.Builder<Product>()
                         .setQuery(query1, Product.class)
                         .build();
 
-        //Log.d("Options"," data : "+options);
-
+        //Display the data in recycleview
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, final int i, @NonNull Product product_get_set_v) {
 
-                //blogViewHolder.setname(product_get_set_v.getName());
                 productViewHolder.setid(product_get_set_v.getId());
                 productViewHolder.settitle(product_get_set_v.getTitle());
                 productViewHolder.setprice(product_get_set_v.getPrice());
@@ -131,30 +100,15 @@ public class ProductAdmin extends AppCompatActivity {
                 productViewHolder.setdescription(product_get_set_v.getDescription());
                 String image_url = productViewHolder.setimage(product_get_set_v.getImage());
 
-                //String link= product_get_set_v.getLink();
-                //Log.d("LINKDATA"," data : "+link);
-
-
                 productViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         final String productid=getRef(i).getKey();
-                        //Log.d("productid"," data : "+productid);
-
 
                         assert productid != null;
                         mdatabasereference.child(productid).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                //String finallink = dataSnapshot.child("link").getValue(String.class);
-                                //Log.d("productLink"," data : "+finallink);
-
-//                                if(finallink!=null)
-//                                {
-//                                    Uri uriUrl = Uri.parse(finallink);
-//                                    Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-//                                    startActivity(launchBrowser);
-//                                }
                             }
                             @Override
                             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -163,6 +117,7 @@ public class ProductAdmin extends AppCompatActivity {
                     }
                 });
 
+                //Update the product details
                 productViewHolder.btnUpdate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -183,6 +138,7 @@ public class ProductAdmin extends AppCompatActivity {
                                 String offer = dataSnapshot.child("offer").getValue(Integer.class).toString();
 
 
+                                //Display the alert dialog box to update
                                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProductAdmin.this);
                                 LayoutInflater inflater = getLayoutInflater();
                                 final View dialogView = inflater.inflate(R.layout.activity_product_update, null);
@@ -198,6 +154,7 @@ public class ProductAdmin extends AppCompatActivity {
                                 final EditText editImage = (EditText) dialogView.findViewById(R.id.uProductImage);
                                 final Button buttonUpdate = (Button) dialogView.findViewById(R.id.updateBtn);
 
+                                //Set the texts to display on edittext
                                 editId.setText(id);
                                 editTitle.setText(title);
                                 editDescription.setText(description);
@@ -213,6 +170,7 @@ public class ProductAdmin extends AppCompatActivity {
                                 alertDialog.show();
 
 
+                                //Connect with database to update product details
                                 buttonUpdate.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -253,6 +211,7 @@ public class ProductAdmin extends AppCompatActivity {
                     }
                 });
 
+                //Connect with database and delete the product
                 productViewHolder.btnDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(final View v) {
@@ -267,8 +226,6 @@ public class ProductAdmin extends AppCompatActivity {
                                     mdatabasereference.removeValue();
 
                                     Snackbar.make(v, "Successfully Deleted the Product", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-
-                                    //Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_SHORT).show();
                                 }
                             }
 
@@ -280,6 +237,7 @@ public class ProductAdmin extends AppCompatActivity {
                 });
             }
 
+            //Display the card view
             @NonNull
             @Override
             public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -309,13 +267,6 @@ public class ProductAdmin extends AppCompatActivity {
             btnDelete = (ImageButton) mView.findViewById(R.id.adminpDelete);
             btnUpdate = (Button) mView.findViewById(R.id.adminpUpdate);
         }
-
-//        public void setname(String name)
-//        {
-//            TextView ename=(TextView)mView.findViewById(R.id.admintext1);
-//            ename.setText(name);
-//
-//        }
 
         public void setid(String id)
         {
@@ -372,35 +323,4 @@ public class ProductAdmin extends AppCompatActivity {
             poffer.setText(offer +"%");
         }
     }
-
-//    private void ShowUpdateDialog(){
-//        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-//        LayoutInflater inflater = getLayoutInflater();
-//        final View dialogView = inflater.inflate(R.layout.activity_udate_product, null);
-//        dialog.setView(dialogView);
-//
-//        TextView txtTitle = (TextView) findViewById(R.id.uProductTitle);
-//        EditText txtSize = (EditText) findViewById(R.id.uProductSize);
-//        EditText txtColor = (EditText) findViewById(R.id.uProductColor);
-//        EditText txtPrice = (EditText) findViewById(R.id.uProductPrice);
-//        EditText txtOffer = (EditText) findViewById(R.id.uProductOffer);
-//        Button btnUpdate = (Button) findViewById(R.id.updateBtn);
-//
-//        dialog.setTitle("Edit Product");
-//        final AlertDialog alertDialog = dialog.create();
-//        alertDialog.show();
-//
-//        btnUpdate.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-//
-//    }
-
-//    private boolean updatePrdouct (String id, String size, String color, String offer, String price){
-//
-//        DatabaseReference updb = FirebaseDatabase.getInstance().getReference().child("products").child("accessories").child(product)
-//    }
 }

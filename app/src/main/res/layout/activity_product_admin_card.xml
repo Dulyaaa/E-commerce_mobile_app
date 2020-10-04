@@ -21,7 +21,7 @@
         android:outlineAmbientShadowColor="#070101">
 
         <RelativeLayout
-            android:background="#AE8361"
+            android:background="#E1C9B6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp">
@@ -70,7 +70,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="5dp"
                 android:layout_toEndOf="@id/adminpimage"
-                android:background="@color/colorPrimary"
+                android:background="@color/colorPrimaryDark"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:text="@string/product_size"

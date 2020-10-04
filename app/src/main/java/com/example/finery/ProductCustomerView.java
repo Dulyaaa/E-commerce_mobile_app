@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.finery.Model.Product;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +30,7 @@ import android.widget.Toast;
 
 public class ProductCustomerView extends AppCompatActivity {
 
+    //Declaring objects
     public static final String ptitle = "Product Title";
     public static final String pid = "Product ID";
     public static final String pdescription = "Product Description";
@@ -51,6 +53,7 @@ public class ProductCustomerView extends AppCompatActivity {
         setContentView(R.layout.activity_product_customer_view);
 
 
+        //progress Dialog until retrieve the all products
         progressDialog = new ProgressDialog(ProductCustomerView.this);
         progressDialog.setMessage("Loading Products Please Wait...");
         progressDialog.show();
@@ -60,6 +63,7 @@ public class ProductCustomerView extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewGridView);
     }
 
+    //Display all products in recycleview
     @Override
     protected void onStart() {
         super.onStart();
@@ -92,6 +96,7 @@ public class ProductCustomerView extends AppCompatActivity {
 
                                 if(dataSnapshot.hasChildren()) {
 
+                                    //Send data to next class
                                     String id = dataSnapshot.child("id").getValue(String.class);
                                     String title = dataSnapshot.child("title").getValue(String.class);
                                     String description = dataSnapshot.child("description").getValue(String.class);
@@ -123,26 +128,6 @@ public class ProductCustomerView extends AppCompatActivity {
                         });
                     }
                 });
-
-
-//                blogViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        final String productid = getRef(i).getKey();
-//
-//                        mdatabasereference.child(productid).addValueEventListener(new ValueEventListener() {
-//                            @Override
-//                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                            }
-//
-//                            @Override
-//                            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                            }
-//                        });
-//                    }
-//                });
-
             }
 
             @NonNull
