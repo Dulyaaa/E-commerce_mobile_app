@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnCart,btnFeedback, btnProducts, btnOrders;
+    private Button btnCart,btnFeedback, btnProducts, btnOrders, btnAccountsettings, btnAboutUs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         btnFeedback =(Button)findViewById(R.id.btnFeedback);
         btnProducts =(Button)findViewById(R.id.btnProducts);
         btnOrders =(Button)findViewById(R.id.btnOrders);
+        btnAccountsettings =(Button)findViewById(R.id.btnAccountsettings);
+        btnAboutUs =(Button)findViewById(R.id.btnAboutUs);
     }
 
 
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnFeedback : i=new Intent(this,Feedback.class);startActivity(i);break;
             case R.id.btnProducts : i=new Intent(this,ProductCustomerView.class);startActivity(i);break;
             case R.id.btnOrders : i=new Intent(this,GiveRates.class);startActivity(i);break;
+            case R.id.btnAccountsettings : i=new Intent(this,MyProfile.class);startActivity(i);break;
+            case R.id.btnAboutUs : i=new Intent(this,AboutUs.class);startActivity(i);break;
 
 
             default:break;

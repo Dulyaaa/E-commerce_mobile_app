@@ -12,7 +12,14 @@
         <activity android:name=".Feedback"></activity>
         <activity android:name=".DeliveryDetails" />
         <activity android:name=".CartActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+
+            <activity android:name=".AboutUs" />
+            <activity android:name=".SignUp" />
+            <activity android:name=".forgotpw" />
+            <activity android:name=".MyProfile" />
+            <activity android:name=".AdminLogin" />
+            <activity android:name=".Login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,6 +36,7 @@
         <activity android:name=".ProductCustomerView" />
 
         <activity android:name=".GiveRates" />
+
 
         <meta-data
             android:name="preloaded_fonts"
