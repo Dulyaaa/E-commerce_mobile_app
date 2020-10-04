@@ -10,11 +10,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.finery.Model.Product;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
-import static com.example.finery.ProductCustomerView.*;
 import static com.example.finery.ProductCustomerView.pcolor;
 import static com.example.finery.ProductCustomerView.pdescription;
 import static com.example.finery.ProductCustomerView.pid;
@@ -79,7 +79,6 @@ public class ProductCustomerMoreDetails extends AppCompatActivity {
 
                 product.setTitle(txtTitle.getText().toString().trim());
                 product.setPrice(calc);
-                //product.setPrice(Integer.parseInt(calc.trim()));
                 product.setImage(image.toString().trim());
                 databaseReference.child(id).setValue(product);
 
@@ -98,10 +97,8 @@ public class ProductCustomerMoreDetails extends AppCompatActivity {
 
             String calculation = String.valueOf(calc);//Convert calculated value to string
             return Integer.parseInt(calculation);
-            //txtPrice.setText("$ " + calculation);//Set the calculate price
         }
         else
             return price;
-        //txtPrice.setText("$ " + price);//Set the price if offer = 0
     }
 }
