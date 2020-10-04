@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finery.Model.Product;
+import com.example.finery.Prevalent.Prevalent;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -75,7 +76,8 @@ public class ProductCustomerMoreDetails extends AppCompatActivity {
         btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                databaseReference = FirebaseDatabase.getInstance().getReference().child("cart").child("customer2");
+                String currentUser = Prevalent.currentOnlineCustomers.getContactNo();
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("cart").child(currentUser);
 
                 product.setTitle(txtTitle.getText().toString().trim());
                 product.setPrice(calc);
