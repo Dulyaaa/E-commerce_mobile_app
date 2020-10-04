@@ -25,32 +25,52 @@
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/input_design"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:ems="10"
         android:hint="Your Name:"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editTextContact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/input_design"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:ems="10"
         android:hint="Contact Number:"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editTextPname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/input_design"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:ems="10"
         android:hint="Product Name:"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editTextDes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/input_design"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:ems="10"
         android:hint="Description:"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textPersonName" />
 
     <Space
@@ -67,6 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/mybutton"
             android:text="Save" />
 
         <Button
@@ -74,6 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/mybutton"
             android:text="Show" />
 
         <Button
@@ -81,6 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/mybutton"
             android:text="Update" />
 
         <Button
@@ -88,6 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/mybutton"
             android:text="Delete" />
     </LinearLayout>
 

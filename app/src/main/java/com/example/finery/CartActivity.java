@@ -49,22 +49,22 @@ public class CartActivity extends AppCompatActivity {
 
     }
 
-    //@Override
-    //protected void onStart() {
-      //  super.onStart();
+    @Override
+    protected void onStart() {
+       super.onStart();
 
-        //final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
+        final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("cart");
 
-        //FirebaseRecyclerOptions<Cart> options =
-                //new FirebaseRecyclerOptions.Builder<Cart>()
-               // .setQuery(cartListRef.child("User View")
-                        //.child().child("Products"),Cart.class).build();
+        FirebaseRecyclerOptions<Cart> options =
+                new FirebaseRecyclerOptions.Builder<Cart>()
+                .setQuery(cartListRef.child("customer2")
+                        .child("product1"),Cart.class).build();
 
-        //FirebaseRecyclerAdapter<Cart,CartViewHolder> adapter = new FirebaseRecyclerAdapter<Cart, CartViewHolder>(options) {
+       // FirebaseRecyclerAdapter<Cart,CartViewHolder> adapter = new FirebaseRecyclerAdapter<Cart,CartViewHolder>(options) {
            // @Override
-            //protected void onBindViewHolder(@NonNull CartViewHolder cartViewHolder, int i, @NonNull Cart cart) {
+            //rotected void onBindViewHolder( CartViewHolder cartViewHolder, int i, Cart cart) {
 
-            }
+            }}
 
             //@NonNull
            // @Override
