@@ -33,7 +33,6 @@ public class ProductCustomerMoreDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("Product Details");
-//        ActionBar actionBar = getActionBar();
         getSupportActionBar().setHomeButtonEnabled(true);
         setContentView(R.layout.activity_product_customer_more_details);
 
