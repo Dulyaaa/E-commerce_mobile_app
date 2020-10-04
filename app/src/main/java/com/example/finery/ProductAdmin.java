@@ -138,6 +138,7 @@ public class ProductAdmin extends AppCompatActivity {
                                 String offer = dataSnapshot.child("offer").getValue(Integer.class).toString();
 
 
+                                //Display the alert dialog box to update
                                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProductAdmin.this);
                                 LayoutInflater inflater = getLayoutInflater();
                                 final View dialogView = inflater.inflate(R.layout.activity_product_update, null);
@@ -153,6 +154,7 @@ public class ProductAdmin extends AppCompatActivity {
                                 final EditText editImage = (EditText) dialogView.findViewById(R.id.uProductImage);
                                 final Button buttonUpdate = (Button) dialogView.findViewById(R.id.updateBtn);
 
+                                //Set the texts to display on edittext
                                 editId.setText(id);
                                 editTitle.setText(title);
                                 editDescription.setText(description);
@@ -168,6 +170,7 @@ public class ProductAdmin extends AppCompatActivity {
                                 alertDialog.show();
 
 
+                                //Connect with database to update product details
                                 buttonUpdate.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -208,6 +211,7 @@ public class ProductAdmin extends AppCompatActivity {
                     }
                 });
 
+                //Connect with database and delete the product
                 productViewHolder.btnDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(final View v) {
@@ -233,6 +237,7 @@ public class ProductAdmin extends AppCompatActivity {
                 });
             }
 
+            //Display the card view
             @NonNull
             @Override
             public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
