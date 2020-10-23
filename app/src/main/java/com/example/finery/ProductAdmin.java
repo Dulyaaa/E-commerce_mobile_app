@@ -178,22 +178,26 @@ public class ProductAdmin extends AppCompatActivity {
                                         updateRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                product.setId(editId.getText().toString().trim());
-                                                product.setTitle(editTitle.getText().toString().trim());
-                                                product.setDescription(editDescription.toString().trim());
-                                                product.setColor(editColor.getText().toString().trim());
-                                                product.setSize(editSize.getText().toString().trim());
-                                                product.setPrice(Integer.parseInt(editPrice.getText().toString().trim()));
-                                                product.setOffer(Integer.parseInt(editOffer.getText().toString().trim()));
-                                                product.setImage(editImage.getText().toString().trim());
 
-                                                mdatabasereference = FirebaseDatabase.getInstance().getReference().child("products").child("accessories").child(productid);
-                                                mdatabasereference.setValue(product);
+                                                if (dataSnapshot.hasChild(productid)) {
+                                                        product.setId(editId.getText().toString().trim());
+                                                        product.setTitle(editTitle.getText().toString().trim());
+                                                        product.setDescription(editDescription.toString().trim());
+                                                        product.setColor(editColor.getText().toString().trim());
+                                                        product.setSize(editSize.getText().toString().trim());
+                                                        product.setPrice(Integer.parseInt(editPrice.getText().toString().trim()));
+                                                        product.setOffer(Integer.parseInt(editOffer.getText().toString().trim()));
+                                                        product.setImage(editImage.getText().toString().trim());
 
-                                                Toast.makeText(getApplicationContext(), "Updated Product", Toast.LENGTH_SHORT).show();
-                                                alertDialog.dismiss();
+                                                        mdatabasereference = FirebaseDatabase.getInstance().getReference().child("products").child("accessories").child(productid);
+                                                        mdatabasereference.setValue(product);
+
+                                                        Toast.makeText(getApplicationContext(), "Updated Product", Toast.LENGTH_SHORT).show();
+                                                        alertDialog.dismiss();
+                                                }
+                                                else
+                                                    Toast.makeText(getApplicationContext(), "No source to Update", Toast.LENGTH_SHORT).show();
                                             }
-
                                             @Override
                                             public void onCancelled(@NonNull DatabaseError databaseError) {
                                             }
@@ -227,6 +231,8 @@ public class ProductAdmin extends AppCompatActivity {
 
                                     Snackbar.make(v, "Successfully Deleted the Product", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                                 }
+                                else
+                                    Toast.makeText(getApplicationContext(), "No data found to delete.", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
