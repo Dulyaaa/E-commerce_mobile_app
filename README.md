@@ -2,12 +2,15 @@
 This is a group project for 2nd Year 2nd Semester - Mobile Application Development (MAD) module, mini-project assignment. 
 ## About
 ## Language 
+* ![Java](https://img.shields.io/badge/Language-Java-brown)
+* ![Firebase](https://img.shields.io/badge/Databse-Firebase-yellow)
 ## Funtions
 * User Management
 * Product Management (My Contribution)
 * Order Management 
 * Rates Management
 ### My Contribution for this project was:
+Product management.
 
 #### Working project my User Interfaces
 
